@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+
+    <style>
+        body{
+            background-color: rgba(98, 127, 138, 0.514);
+        }
+        #tti{
+            border-style: dashed;
+            border-color: rgb(107, 128, 146);
+            text-align: center;
+            color: rgb(0, 0, 0);
+            
+        }
+        .boto{
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <h1 id="tti">Tabuada Usando Javascript</h1>
+   <div class="boto">
+    <button onclick="mostrarTabuadaCompleta()">Mostrar Tabuada de 1 a 10</button>
+    <button onclick="mostrarTabuadaEscolhida()">Escolher Tabuada</button>
+   </div>
+    <div id="result"></div>
+    <script>
+        function mostrarTabuadaCompleta() {
+            const resultDiv = document.getElementById('result');
+            let tabuada = '';
+            for (let i = 1; i <= 10; i++) {
+                tabuada += `<h3>Tabuada do ${i}:</h3>`;
+                for (let j = 1; j <= 10; j++) {
+                    tabuada += `${i} x ${j} = ${i * j}<br>`;
+                }
+                tabuada += '<br>';
+            }
+            resultDiv.innerHTML = tabuada;
+        }
+        function mostrarTabuadaEscolhida() {
+            const numero = prompt("Escolha um número de 1 a 10:");
+            const resultDiv = document.getElementById('result');
+            if (numero >= 1 && numero <= 10) {
+                let tabuada = `<h3>Tabuada do ${numero}:</h3>`;
+                for (let i = 1; i <= 10; i++) {
+                    tabuada += `${numero} x ${i} = ${numero * i}<br>`;
+                }
+                resultDiv.innerHTML = tabuada;
+            } else {
+                resultDiv.innerHTML = "Número inválido. Por favor, escolha um número entre 1 e 10.";
+            }
+        }
+    </script>
+
+</body>
+</html>
